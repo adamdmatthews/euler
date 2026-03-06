@@ -1,4 +1,5 @@
-module MyLib (someFunc) where
+module MyLib (euler1) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+euler1 :: Integer
+euler1 = sum . filter (\i -> mod i 3 == 0 || mod i 5 == 0) $ [1..999]
+
