@@ -1,10 +1,10 @@
-cabal-version:   3.0
-name:            euler
-version:         0.1.0.0
-license:         MIT
-license-file:    LICENSE
-author:          Adam Matthews
-build-type:      Simple
+cabal-version: 3.0
+name:          euler
+version:       0.1.0.0
+license:       MIT
+license-file:  LICENSE
+author:        Adam Matthews
+build-type:    Simple
 
 library
     exposed-modules:  MyLib
