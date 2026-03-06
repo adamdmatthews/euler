@@ -21,4 +21,5 @@ test-suite euler-test
     ghc-options:      -Wall
     build-depends:
         base,
+        hspec,
         euler
