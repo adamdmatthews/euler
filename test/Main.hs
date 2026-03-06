@@ -8,3 +8,6 @@ main = hspec $ do
   describe "solutions" $ do
     it "euler1" $ do
       shouldBe euler1 233168
+    it "euler2" $ do
+      shouldBe euler2 4613732
+
