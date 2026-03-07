@@ -18,6 +18,11 @@ primeFactors x = underSqrt ++ overSqrt
     underSqrt = filter (\p -> mod x p == 0) . takeWhile (\p -> p * p <= x) $ primes
     overSqrt = filter isPrime . map (\p -> div x p) . reverse $ underSqrt
 
+isPalindrome :: Integer -> Bool
+isPalindrome x
+  | x < 0 = False
+  | otherwise = x == (read . reverse . show) x
+
 euler1 :: Integer
 euler1 = sum . filter (\i -> mod i 3 == 0 || mod i 5 == 0) $ [1 .. 999]
 
@@ -26,3 +31,6 @@ euler2 = sum . filter even . takeWhile (<= 4000000) $ fibs
 
 euler3 :: Integer
 euler3 = last . primeFactors $ 600851475143
+
+euler4 :: Integer
+euler4 = maximum . filter isPalindrome $ [a * b | a <- [100 .. 999], b <- [100 .. a]]
