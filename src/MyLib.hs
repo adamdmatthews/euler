@@ -57,3 +57,6 @@ euler6 = squareOfSums - sumOfSquares
   where
     sumOfSquares = sum $ map (^ (2 :: Integer)) [1 .. 100]
     squareOfSums = (sum [1 .. 100]) ^ (2 :: Integer)
+
+euler7 :: Integer
+euler7 = primes !! 10000
