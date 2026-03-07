@@ -10,13 +10,16 @@ isPrime :: Integer -> Bool
 isPrime 2 = True
 isPrime x
   | x < 2 = False
-  | otherwise = null . primeFactors $ x
+  | otherwise = primeFactors x == [x]
 
 primeFactors :: Integer -> [Integer]
-primeFactors x = underSqrt ++ overSqrt
+primeFactors n
+  | n < 2 = []
+  | otherwise = case factors of
+      (x : _) -> x : primeFactors (div n x)
+      [] -> [n]
   where
-    underSqrt = filter (\p -> mod x p == 0) . takeWhile (\p -> p * p <= x) $ primes
-    overSqrt = filter isPrime . map (\p -> div x p) . reverse $ underSqrt
+    factors = filter (\p -> mod n p == 0) . takeWhile (\p -> p * p <= n) $ primes
 
 isPalindrome :: Integer -> Bool
 isPalindrome x
