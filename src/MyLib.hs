@@ -1,5 +1,8 @@
 module MyLib where
 
+import Inputs
+import Data.Char (digitToInt)
+
 fibs :: [Integer]
 fibs = 1 : 1 : zipWith (+) fibs (drop 1 fibs)
 
@@ -37,6 +40,14 @@ lcm' 0 _ = 0
 lcm' _ 0 = 0
 lcm' x y = abs $ div (x * y) (gcd' x y)
 
+maxProductAdjacentDigits :: Int -> [Integer] -> Integer
+maxProductAdjacentDigits n x
+  | n <= 0 = 0
+  | length window < n = 0
+  | otherwise = max (product window) (maxProductAdjacentDigits n $ drop 1 x)
+  where
+    window = take n x
+
 euler1 :: Integer
 euler1 = sum . filter (\i -> mod i 3 == 0 || mod i 5 == 0) $ [1 .. 999]
 
@@ -60,3 +71,6 @@ euler6 = squareOfSums - sumOfSquares
 
 euler7 :: Integer
 euler7 = primes !! 10000
+
+euler8 :: Integer
+euler8 = maxProductAdjacentDigits 13 . map (toInteger . digitToInt) $ euler8input
