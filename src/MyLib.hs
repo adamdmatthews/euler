@@ -51,3 +51,9 @@ euler4 = maximum . filter isPalindrome $ [a * b | a <- [100 .. 999], b <- [100 .
 
 euler5 :: Integer
 euler5 = foldl1 lcm' [1 .. 20]
+
+euler6 :: Integer
+euler6 = squareOfSums - sumOfSquares
+  where
+    sumOfSquares = sum $ map (^ (2 :: Integer)) [1 .. 100]
+    squareOfSums = (sum [1 .. 100]) ^ (2 :: Integer)
