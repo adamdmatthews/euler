@@ -22,6 +22,8 @@ main = hspec $ do
       shouldBe euler7 104743
     it "euler8" $ do
       shouldBe euler8 23514624000
+    it "euler9" $ do
+      shouldBe euler9 31875000
   describe "primes" $ do
     it "first 10" $ do
       shouldBe (take 10 primes) [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]

@@ -1,7 +1,7 @@
 module MyLib where
 
-import Inputs
 import Data.Char (digitToInt)
+import Inputs
 
 fibs :: [Integer]
 fibs = 1 : 1 : zipWith (+) fibs (drop 1 fibs)
@@ -74,3 +74,6 @@ euler7 = primes !! 10000
 
 euler8 :: Integer
 euler8 = maxProductAdjacentDigits 13 . map (toInteger . digitToInt) $ euler8input
+
+euler9 :: Integer
+euler9 = head [a * b * c | c <- [1 ..], b <- [1 .. c], a <- [1 .. b], a * a + b * b == c * c, a + b + c == 1000]
